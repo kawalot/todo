@@ -1,1 +1,1 @@
-# my todo app
+# my todo app with TDD aproach
