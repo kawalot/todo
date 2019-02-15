@@ -9,7 +9,7 @@ SUBJECT = 'Your login link for ToDo superlists'
 
 
 class LoginTest(FunctionalTest):
-    
+
     def test_can_get_email_link_to_log_in(self):
         # Edith goes to the awesome todo lists site
         # and notices a "Log in" section in the navbar for the first time
@@ -46,3 +46,13 @@ class LoginTest(FunctionalTest):
         )
         navbar = self.browser.find_element_by_css_selector('.navbar')
         self.assertIn(TEST_EMAIL, navbar.text)
+
+        # Now she logs out
+        self.browser.find_element_by_link_text('Log out').click()
+
+        # She is logged out
+        self.wait_for(
+            lambda: self.browser.find_element_by_name('email')
+        )
+        navbar = self.browser.find_element_by_css_selector('.navbar')
+        self.assertNotIn(TEST_EMAIL, navbar.text)
