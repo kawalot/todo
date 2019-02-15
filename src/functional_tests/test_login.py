@@ -9,6 +9,7 @@ SUBJECT = 'Your login link for ToDo superlists'
 
 
 class LoginTest(FunctionalTest):
+    
     def test_can_get_email_link_to_log_in(self):
         # Edith goes to the awesome todo lists site
         # and notices a "Log in" section in the navbar for the first time
