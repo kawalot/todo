@@ -4,8 +4,10 @@ from .list_page import ListPage
 from .my_lists_page import MyListsPage
 
 def quit_if_possible(browser):
-    try: browser.quit()
-    except: pass
+    try: 
+        browser.quit()
+    except: 
+        pass
 
 
 class SharingTest(FunctionalTest):
@@ -24,6 +26,7 @@ class SharingTest(FunctionalTest):
 
         # Edith goes to the home page and starts a list
         self.browser = edith_browser
+        self.browser.get(self.live_server_url)
         list_page = ListPage(self).add_list_item('Get help')
 
         # She notices a "Share this list" option
