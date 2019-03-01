@@ -12,8 +12,11 @@
 {% block scripts %}
     <script>
         $(document).ready(function () {
-            var url = "{% url 'api_list' lst.id %}";
-            window.Superlists.initialize(url);
+            window.Superlists.initialize({
+                listApiUrl: "{% url 'list-detail' lst.id %}",
+                itemsApiUrl: "{% url 'item-list' %}",
+                listId: {{ lst.id }},
+            });
         });
     </script>
 {% endblock scripts %}
